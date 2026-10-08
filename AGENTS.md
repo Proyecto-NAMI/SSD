@@ -8,7 +8,7 @@ Equipo: Yangpeng Ni, Erik Brayan Agreda, Qingfei Meng y Víctor Iniesta Romera.
 
 ## 2. Documentos que se deben leer
 
-Antes de proponer o modificar código, leer en este orden:
+Antes de proponer o modificar código, lee las instrucciones:
 
 1. `constitution.md`: reglas no negociables.
 2. `spec.md`: alcance, requisitos y aceptación.
@@ -18,7 +18,7 @@ Antes de proponer o modificar código, leer en este orden:
 
 Si los documentos discrepan, no elegir una interpretación en silencio. Señalar el conflicto y aplicar el orden de prioridad de `constitution.md`.
 
-## 3. Tecnologías acordadas
+## 3. Tecnologías utilizadas
 
 - Kotlin, Android, Jetpack Compose y Material 3.
 - Arquitectura por capas con ViewModel, casos de uso y repositorios.
@@ -27,7 +27,7 @@ Si los documentos discrepan, no elegir una interpretación en silencio. Señalar
 - DataStore para preferencias locales.
 - JUnit y fakes, Compose UI Test y Firebase Emulator Suite.
 
-No sustituir estas tecnologías ni añadir una dependencia sin justificarlo en `plan.md` y obtener revisión humana.
+No sustituir ni añadir tecnologías ni dependencias sin justificarlo en `plan.md` y obtener aprobación humana.
 
 ## 4. Convenciones
 
@@ -78,4 +78,3 @@ Hasta concretarlos, inspeccionar `gradlew tasks` y los archivos Gradle; no inven
 - [ ] Los estados de carga, vacío, éxito y error están cubiertos.
 - [ ] Las pruebas relevantes se ejecutaron o se indicó la limitación.
 - [ ] Una persona del equipo revisó la propuesta.
-
