@@ -41,6 +41,10 @@ No sustituir ni añadir tecnologías ni dependencias sin justificarlo en `plan.m
 - No registrar tokens, teléfonos, contenido de mensajes ni rutas privadas de audio.
 - Usar datos ficticios en pruebas y capturas.
 - Mantener cada cambio limitado a una tarea o conjunto estrechamente relacionado.
+- Controles e interactividad por pulsación simple; sin gestos complejos de mantener pulsado o arrastrar.
+- Identificador cliente único en mensajes para garantizar idempotencia y evitar duplicados tras reintentos.
+- Control centralizado de audio para asegurar una sola grabación o reproducción activa simultáneamente.
+- Secretos, claves API y google-services.json totalmente excluidos del repositorio Git.   
 
 ## 5. Comportamiento esperado del asistente
 
