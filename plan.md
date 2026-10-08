@@ -9,7 +9,7 @@
 | Área | Elección | Justificación |
 |---|---|---|
 | Cliente | Android nativo con Kotlin y Jetpack Compose | Encaja con 2.º DAM, permite una UI móvil accesible y reduce duplicación. |
-| Diseño | Material 3 adaptado a Figma | Aporta componentes accesibles, semántica y escalado. |
+| Diseño | El prototipo impuesta en Figma | Aporta componentes accesibles, semántica y escalado. |
 | Arquitectura | Presentación, dominio y datos; ViewModel y repositorios | Separa UI, reglas y Firebase y facilita las pruebas. |
 | Asincronía | Coroutines y Flow | Modelo idiomático para estado, red, grabación y reproducción. |
 | Identidad | Firebase Authentication por teléfono | Se alinea con Figma y evita contraseñas complejas. |
