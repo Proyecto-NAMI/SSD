@@ -1,22 +1,25 @@
 # Especificación del MVP de NAMI
 
 **Versión:** 1.0  
-**Fecha:** 8 de octubre de 2026  
+**Fecha:** 8 de octubre de 2026
+**Proyecto:** NAMI
 **Equipo:** Yangpeng Ni, Erik Brayan Agreda, Qingfei Meng y Víctor Iniesta Romera  
 **Curso:** 2.º DAM  
 **Prototipo:** <https://www.figma.com/design/bGCnnDncM5CUdgVfMmRgz3/NAMI?node-id=0-1&t=NXeWbgK48RRls40z-1>
 
-## 1. Problema y personas usuarias
+## 1. Motivo y personas usuarias
 
 Muchas personas mayores tienen menos contacto del que desean con familiares y amistades. Aunque existen aplicaciones de mensajería, sus menús, iconos, contraseñas y múltiples funciones pueden generar inseguridad o impedir una participación autónoma.
 
-NAMI ofrece un espacio privado de comunicación uno a uno con pocas opciones visibles, texto grande y prioridad para el audio.
+NAMI ofrece un espacio privado de comunicación uno a uno con un facil uso, opciones necesarias, adaptación al usuario, texto grande y prioridad para el audio.
 
-- **María/Carmen, 78 años:** visión reducida, poca familiaridad con el móvil y temor a equivocarse. Necesita acciones claras, botones grandes, confirmación del resultado y la posibilidad de escuchar contenido.
+## 2. Ejemplo real de la necesidad
+
+- **María/Carmen, 78 años:** visión reducida, poca familiaridad con el móvil y temor a equivocarse. Necesita acciones claras, botones grandes, confirmación del resultado y la posibilidad de escuchar el contenido.
 - **Carlos, 22 años, familiar:** quiere comunicarse de forma frecuente sin obligar a la persona mayor a aprender una aplicación compleja.
 - **Familiar o persona de confianza:** puede ser añadido como contacto y participar en una conversación privada.
 
-## 2. Objetivo del MVP
+## 3. Objetivo del MVP
 
 Permitir que una persona mayor cree y mantenga un perfil, gestione una lista pequeña de contactos de confianza y mantenga conversaciones privadas uno a uno mediante texto y notas de voz, con confirmaciones claras y controles básicos de accesibilidad.
 
@@ -27,7 +30,7 @@ Permitir que una persona mayor cree y mantenga un perfil, gestione una lista peq
 - Abrir una conversación y enviar un texto requiere como máximo 4 acciones desde la pantalla principal.
 - No hay incumplimientos críticos de contraste, etiquetado o tamaño táctil en el flujo principal.
 
-## 3. Alcance
+## 4. Alcance
 
 ### Incluido
 
@@ -52,38 +55,41 @@ Permitir que una persona mayor cree y mantenga un perfil, gestione una lista peq
 - Cifrado de extremo a extremo.
 - Modo oscuro propio; se respetará el modo del sistema cuando sea compatible.
 
-Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones visuales y no estarán activos en el MVP.
+Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones visuales, seguirán visibles pero no estarán activos en el MVP.
 
-## 4. Requisitos funcionales
+## 5. Requisitos funcionales
 
 ### RF-01. Cuenta y sesión
 
-- **Cuando** una persona introduzca nombre, apellidos y un teléfono válido y complete la verificación, **el sistema deberá** crear su cuenta y abrir la pantalla de conversaciones.
+- **Cuando** una persona introduzca nombre, apellidos y un teléfono válido y complete la verificación, **el sistema deberá** crear su cuenta y abrir la pantalla de lista de conversaciones.
 - **Mientras** exista una sesión válida, **el sistema deberá** mantener el acceso al volver a abrir la aplicación.
 - **Si** la verificación falla o caduca, **el sistema deberá** explicarlo y permitir solicitar un nuevo código sin perder el formulario.
 
 ### RF-02. Perfil
 
-- **Cuando** la persona abra su perfil, **el sistema deberá** mostrar nombre, apellidos, teléfono y avatar opcional.
-- **Cuando** guarde un nombre o avatar válido, **el sistema deberá** actualizar el perfil y reflejarlo en la interfaz.
+- **Cuando** la persona abra su perfil, **el sistema deberá** mostrar el avatar opcional, nombre, apellidos y teléfono en dicho orden.
+- **Cuando** guarde un nombre, avatar, apellido o teléfono válido **el sistema deberá** actualizar el perfil y reflejarlo en la interfaz.
+- **Si** un nombre, avatar, apellido o teléfono modificado no es válido **el sistema deberá** indicarlo con claridad y rechazar, con indicación del motivo, cualquier intento de guardar los cambios por parte del usuario.
 
 ### RF-03. Contactos de confianza
 
-- **Cuando** la persona introduzca nombre, apellidos y teléfono válido de un contacto, **el sistema deberá** añadirlo o vincularlo con una cuenta existente.
-- **Si** el teléfono ya pertenece a un contacto, **el sistema deberá** impedir el duplicado e indicar qué contacto existe.
-- **Si** el teléfono no tiene cuenta NAMI, **el sistema deberá** conservar el contacto como pendiente sin enviar invitaciones automáticas.
+- **Cuando** el usuario introduzca nombre, apellidos y teléfono válido de un contacto, **el sistema deberá** añadirlo a la base de usuarios de NAMI
+- **Si** el teléfono ya pertenece a un contacto, **el sistema deberá** impedir el duplicado e indicar qué el contacto existe.
+- **Si** el teléfono no tiene cuenta NAMI, **el sistema deberá** conservar el contacto y crear una nueva cuenta con dicha información.
 
 ### RF-04. Lista de conversaciones
 
-- **Cuando** la persona acceda a la pantalla principal, **el sistema deberá** mostrar sus conversaciones ordenadas por actividad reciente.
+- **Cuando** la persona acceda a la pantalla de la lista de conversaciones, **el sistema deberá** mostrar sus contactos ordenados por mensajes sin leer de cada uno.
 - Cada elemento deberá mostrar nombre, avatar opcional y contador de mensajes no leídos.
-- **Cuando** pulse una conversación, **el sistema deberá** abrir el historial con ese contacto.
+- **Cuando** pulse en un contacto, **el sistema deberá** abrir la pantalla de mensajes de dicho contacto.
 
 ### RF-05. Mensajes de texto
 
 - **Cuando** la persona escriba texto no vacío y pulse enviar, **el sistema deberá** guardar el mensaje, mostrarlo y confirmar el envío.
 - **Si** el texto está vacío o solo contiene espacios, **el sistema deberá** mantener deshabilitado el envío.
 - **Si** el envío falla, **el sistema deberá** marcar el mensaje como no enviado y ofrecer reintento sin duplicarlo.
+- **Si** el envío a sido válido pero el usuario receptor no lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado pero sin leer.
+- **Si** el envío a sido válido y el usuario receptor lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado y leído.
 
 ### RF-06. Grabación y envío de audio
 
@@ -114,7 +120,7 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 
 - **Cuando** la persona confirme el cierre de sesión, **el sistema deberá** revocar la sesión local, detener reproducción o grabación y volver al acceso.
 
-## 5. Requisitos no funcionales
+## 6. Requisitos no funcionales
 
 - **RNF-01 Accesibilidad:** contraste WCAG 2.2 AA aplicable, texto al 200 %, etiquetas para lector de pantalla y controles de al menos 48 x 48 dp.
 - **RNF-02 Facilidad de uso:** enviar texto requerirá como máximo 4 acciones desde inicio; grabar, revisar y enviar audio, como máximo 5.
@@ -126,7 +132,7 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 - **RNF-08 Mantenibilidad:** la lógica crítica tendrá pruebas unitarias y al menos 70 % de cobertura en paquetes de dominio.
 - **RNF-09 Recuperación:** una recreación de pantalla no perderá el texto aún no enviado ni dejará una grabación activa sin indicador.
 
-## 6. Criterios de aceptación
+## 7. Criterios de aceptación
 
 ### CA-01. Primer acceso
 
@@ -156,7 +162,7 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 
 **Dadas** dos cuentas ajenas a la misma conversación, **cuando** una intenta consultar datos de la otra, **entonces** el backend deniega la operación.
 
-## 7. Casos límite
+## 8. Casos límite
 
 - Nombre vacío, muy largo o con caracteres internacionales.
 - Teléfono internacional, inválido, duplicado o ya registrado.
@@ -171,7 +177,7 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 - Cambio de tamaño de texto con una pantalla abierta.
 - Acceso tras retirar o bloquear un contacto, decisión aún pendiente.
 
-## 8. Dudas pendientes
+## 9. Dudas pendientes
 
 1. Confirmar versión mínima de Android según dispositivos del piloto.
 2. Definir duración y tamaño máximos de una nota de voz.
@@ -179,4 +185,3 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 4. Definir conservación y borrado de cuenta, mensajes y audios antes de usar datos reales.
 5. Decidir si el estado escuchado/leído entrará después del MVP.
 6. Confirmar que los nombres y teléfonos visibles en el prototipo son ficticios y autorizados para pruebas.
-
