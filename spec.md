@@ -61,31 +61,31 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 
 ### RF-01. Cuenta y sesión
 
-- **Cuando** una persona introduzca nombre, apellidos y un teléfono válido y complete la verificación, **el sistema deberá** crear su cuenta y abrir la pantalla de lista de conversaciones.
+- **Cuando** el usuario introduzca nombre, apellidos y un teléfono válido y complete la verificación, **el sistema deberá** crear la cuenta correspondiente y abrir la pantalla de lista de conversaciones.
 - **Mientras** exista una sesión válida, **el sistema deberá** mantener el acceso al volver a abrir la aplicación.
 - **Si** la verificación falla o caduca, **el sistema deberá** explicarlo y permitir solicitar un nuevo código sin perder el formulario.
 
 ### RF-02. Perfil
 
-- **Cuando** la persona abra su perfil, **el sistema deberá** mostrar el avatar opcional, nombre, apellidos y teléfono en dicho orden.
+- **Cuando** el usuario abra su perfil, **el sistema deberá** mostrar el avatar opcional, nombre, apellidos y teléfono en dicho orden.
 - **Cuando** guarde un nombre, avatar, apellido o teléfono válido **el sistema deberá** actualizar el perfil y reflejarlo en la interfaz.
 - **Si** un nombre, avatar, apellido o teléfono modificado no es válido **el sistema deberá** indicarlo con claridad y rechazar, con indicación del motivo, cualquier intento de guardar los cambios por parte del usuario.
 
 ### RF-03. Contactos de confianza
 
-- **Cuando** el usuario introduzca nombre, apellidos y teléfono válido de un contacto, **el sistema deberá** añadirlo a la base de usuarios de NAMI
+- **Cuando** el usuario introduzca nombre, apellidos y teléfono válido de una cuenta, **el sistema deberá** añadirlo a la base de usuarios de NAMI.
 - **Si** el teléfono ya pertenece a un contacto, **el sistema deberá** impedir el duplicado e indicar qué el contacto existe.
 - **Si** el teléfono no tiene cuenta NAMI, **el sistema deberá** conservar el contacto y crear una nueva cuenta con dicha información.
 
 ### RF-04. Lista de conversaciones
 
-- **Cuando** la persona acceda a la pantalla de la lista de conversaciones, **el sistema deberá** mostrar sus contactos ordenados por mensajes sin leer de cada uno.
+- **Cuando** el usuario acceda a la pantalla de la lista de conversaciones, **el sistema deberá** mostrar sus contactos ordenados por mensajes sin leer.
 - Cada elemento deberá mostrar nombre, avatar opcional y contador de mensajes no leídos.
 - **Cuando** pulse en un contacto, **el sistema deberá** abrir la pantalla de mensajes de dicho contacto.
 
 ### RF-05. Mensajes de texto
 
-- **Cuando** la persona escriba texto no vacío y pulse enviar, **el sistema deberá** guardar el mensaje, mostrarlo y confirmar el envío.
+- **Cuando** el usuario escriba texto no vacío y pulse enviar, **el sistema deberá** guardar el mensaje, mostrarlo y confirmar el envío.
 - **Si** el texto está vacío o solo contiene espacios, **el sistema deberá** mantener deshabilitado el envío.
 - **Si** el envío falla, **el sistema deberá** marcar el mensaje como no enviado y ofrecer reintento sin duplicarlo.
 - **Si** el envío a sido válido pero el usuario receptor no lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado pero sin leer.
@@ -93,32 +93,33 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 
 ### RF-06. Grabación y envío de audio
 
-- **Cuando** la persona pulse una vez el micrófono y conceda permiso, **el sistema deberá** iniciar la grabación y mostrar estado y duración.
-- **Cuando** pulse detener, **el sistema deberá** permitir reproducir, eliminar o enviar la nota antes de publicarla.
-- **Si** se deniega el permiso, **el sistema deberá** explicar para qué se necesita y permitir continuar con texto.
-- **Si** la subida falla, **el sistema deberá** conservar temporalmente el audio y ofrecer reintento o eliminación.
+- **Cuando** el usuario pulse una vez el micrófono, **el sistema deberá** iniciar la grabación y mostrar estado y duración.
+- **Cuando** el usuario pulse detener la grabación, **el sistema deberá** permitir reproducir, eliminar o enviar la nota antes de publicarla.
+- **Si** el usuario no ha dado permiso para NAMI acceder a su micrófono, **el sistema deberá** preguntar si se le es permitido acceder a este, explicando su necesidad de acceso.
+- **Si** la subida falla, **el sistema deberá** conservar temporalmente el audio y ofrecer reintento o eliminación de este.
 
 ### RF-07. Reproducción y texto a voz
 
-- **Cuando** la persona pulse un mensaje de audio, **el sistema deberá** reproducirlo y ofrecer pausa.
-- **Cuando** pulse escuchar en un mensaje de texto y el texto a voz esté activado, **el sistema deberá** leerlo en voz alta.
-- **Si** el motor de voz no está disponible, **el sistema deberá** explicarlo y mantener visible el texto.
+- **Cuando** el usuario pulse en un mensaje de audio, **el sistema deberá** reproducirlo y ofrecer la posibilidad de pausarlo en cualquier momento.
+- **Cuando** pulse escuchar en un mensaje de texto y el texto a voz esté activado, **el sistema deberá** leer seleccionado texto en voz alta y clara.
+- **Si** el motor de texto a voz no está disponible, **el sistema deberá** explicar el fallo y dar la posibilidad de activarlo.
 
 ### RF-08. Confirmación y estado
 
-- **Cuando** un mensaje se guarde en el servidor, **el sistema deberá** mostrar “Mensaje enviado” y emitir una señal sonora breve si está habilitada.
-- **Mientras** se envía, **el sistema deberá** mostrar progreso y evitar envíos duplicados.
-- **Si** se pierde la conexión, **el sistema deberá** diferenciar entre pendiente y fallido.
+- **Cuando** un mensaje se guarde en el servidor, **el sistema deberá** mostrar dicho mensaje tanto al usuario mensajero como al receptor y emitir una señal sonora breve si está habilitada.
+- **Mientras** se envía, **el sistema deberá** mostrar el progreso y evitar envíos duplicados.
+- **Si** el mensaje no se puede enviar, **el sistema deberá** diferenciar entre estado pendiente y fallido y guardar el mensaje en una memoria para tratar de reenviarlo más tarde.
+- **Si** el mensaje en la memoria es incapaz de reenviarse por falta de conectividad tras reintentarlo por varios minutos **el sistema deberá** eliminar dicho mensaje y avisar al usuario sobre dicha acción.
 
 ### RF-09. Preferencias de accesibilidad
 
-- **Cuando** la persona cambie el tamaño de texto, **el sistema deberá** aplicarlo a todas las pantallas del MVP y conservarlo localmente.
-- **Cuando** active o desactive texto a voz, **el sistema deberá** conservar la preferencia.
-- Las acciones esenciales deberán ejecutarse con pulsación simple; no se exigirá mantener pulsado el micrófono.
+- **Cuando** el usuario cambie el tamaño de texto, **el sistema deberá** aplicarlo a todas las pantallas del MVP y conservarlo localmente.
+- **Cuando** active o desactive texto a voz, **el sistema deberá** conservar la preferencia y usarlo cuando el usuario lo use.
+- Las acciones deberán ejecutarse con pulsación simple; no se exigirá mantener pulsado botón cualquiera.
 
 ### RF-10. Cierre de sesión
 
-- **Cuando** la persona confirme el cierre de sesión, **el sistema deberá** revocar la sesión local, detener reproducción o grabación y volver al acceso.
+- **Cuando** el usuario confirme el cierre de sesión, **el sistema deberá** revocar la sesión local, detener reproducción o grabación y volver a la pantalla de acceso.
 
 ## 6. Requisitos no funcionales
 
