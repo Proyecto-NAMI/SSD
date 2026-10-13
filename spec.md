@@ -11,7 +11,7 @@
 
 Muchas personas mayores tienen menos contacto del que desean con familiares y amistades. Aunque existen aplicaciones de mensajería, sus menús, iconos, contraseñas y múltiples funciones pueden generar inseguridad o impedir una participación autónoma.
 
-NAMI ofrece un espacio privado de comunicación uno a uno con un facil uso, opciones necesarias, adaptación al usuario, texto grande y prioridad para el audio.
+NAMI ofrece un espacio privado de comunicación uno a uno con un fácil uso, opciones necesarias, adaptación al usuario, texto grande y prioridad para el audio.
 
 ## 2. Ejemplo real de la necesidad
 
@@ -74,7 +74,7 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 ### RF-03. Contactos de confianza
 
 - **Cuando** el usuario introduzca nombre, apellidos y teléfono válido de un contacto, **el sistema deberá** añadirlo a la base de usuarios de NAMI
-- **Si** el teléfono ya pertenece a un contacto, **el sistema deberá** impedir el duplicado e indicar qué el contacto existe.
+- **Si** el teléfono ya pertenece a un contacto, **el sistema deberá** impedir el duplicado e indicar que el contacto existe.
 - **Si** el teléfono no tiene cuenta NAMI, **el sistema deberá** conservar el contacto y crear una nueva cuenta con dicha información.
 
 ### RF-04. Lista de conversaciones
@@ -88,8 +88,8 @@ Los iconos de cámara, llamada y vídeo presentes en Figma son exploraciones vis
 - **Cuando** la persona escriba texto no vacío y pulse enviar, **el sistema deberá** guardar el mensaje, mostrarlo y confirmar el envío.
 - **Si** el texto está vacío o solo contiene espacios, **el sistema deberá** mantener deshabilitado el envío.
 - **Si** el envío falla, **el sistema deberá** marcar el mensaje como no enviado y ofrecer reintento sin duplicarlo.
-- **Si** el envío a sido válido pero el usuario receptor no lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado pero sin leer.
-- **Si** el envío a sido válido y el usuario receptor lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado y leído.
+- **Si** el envío ha sido validado pero el usuario receptor no lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado pero sin leer.
+- **Si** el envío ha sido validado y el usuario receptor lo ha leído, **el sistema deberá** marcar dicho mensaje como enviado y leído.
 
 ### RF-06. Grabación y envío de audio
 
