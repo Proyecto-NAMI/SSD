@@ -78,3 +78,16 @@ Hasta concretarlos, inspeccionar `gradlew tasks` y los archivos Gradle; no inven
 - [ ] Los estados de carga, vacío, éxito y error están cubiertos.
 - [ ] Las pruebas relevantes se ejecutaron o se indicó la limitación.
 - [ ] Una persona del equipo revisó la propuesta.
+## 8. Gestión de Dudas, Conflictos y Ampliación de Alcance
+
+### Protocolo ante Dudas y Ambigüedades
+- Detener la implementación inmediatamente.
+- Formular una pregunta concreta al usuario o responsable antes de escribir código
+### Resolución de Conflictos entre Documentos
+- No elegir una interpretación en silencio.
+- Señalar explícitamente el conflicto en la comunicación.
+- Aplicar el orden de prioridad no negociable de constitution.md:
+### Control de Ampliación de Alcance
+- Proponer únicamente el cambio mínimo necesario que satisfaga los criterios de aceptación de la tarea asignada
+- Rechazar o derivar a un backlog futuro cualquier funcionalidad no especificada en spec.md o plan.md.
+- No añadir tecnologías, librerías ni dependencias sin justificación previa en plan.md y aprobación humana
